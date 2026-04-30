@@ -10,7 +10,7 @@ class Livro:
     def abrir_livro(self):
         if self.pagina_atual == 0:
             self.pagina_atual += 1
-            return f"Você pegou o livro {self.titulo}\nAbrindo Livro... Você está na página 1"
+            return f"[blue]Você pegou o livro[/blue] [red]{self.titulo}[/red] [blue]que tem[/blue] [green]{self.paginas} páginas[/green]\n[blue]Abrindo Livro... Você está na[/blue] [yellow]página 1[/yellow]"
         else:
             return "Livro já está aberto\nVocê está na página 1"
     def avancar_paginas(self, avancar):
