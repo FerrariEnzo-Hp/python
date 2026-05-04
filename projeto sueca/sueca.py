@@ -38,8 +38,6 @@ class Sueca:
         self.trunfo = self.maos[3][-1].naipe
     def obter_naipe_mesa(self):
         return self.mesa[0][1].naipe
-    def validar_carta(self):
-        pass
     def jogar_carta(self, jogador, carta):
         if jogador != self.turno:
             return False
@@ -54,22 +52,6 @@ class Sueca:
         self.mesa.append((jogador, carta))
         self.turno = (self.turno + 1) % 4
         return True
-    def determinar_vencedor(self):
-        naipe_mesa = self.obter_naipe_mesa()
-        melhor_jogador, melhor_carta = self.mesa[0]
-
-        for jogador, carta in self.mesa:
-            if carta.naipe == self.trunfo and melhor_carta.naipe != self.trunfo:
-                melhor_carta = carta
-                melhor_jogador = jogador
-            elif (carta.naipe == naipe_mesa and melhor_carta.naipe == naipe_mesa) or carta.naipe == self.trunfo and melhor_carta.naipe == self.trunfo:
-                valor_carta = valores.get(carta.valor, 0)
-                valor_melhor_carta = valores.get(melhor_carta.valor, 0)
-                if valor_carta > valor_melhor_carta:
-                    melhor_carta = carta
-                    melhor_jogador = jogador
-            else:
-                melhor_carta = melhor_carta
     def determinar_vencedor(self):
         naipe_mesa = self.obter_naipe_mesa()
         melhor_jogador, melhor_carta = self.mesa[0]
